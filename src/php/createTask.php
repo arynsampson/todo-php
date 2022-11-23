@@ -3,14 +3,17 @@
 
     session_start();
 
-    function createTask() {
-        $username = $_SESSION['username'];
-        $task_name = $_SESSION['task_name'];
-        $due_date = $_SESSION['due_date'];
-        $priority = $_SESSION['priority'];
+    function createTask($inputData) {
+        global $conn;
 
-        $query = "INSERT INTO tasks (username, task_name, due_date, priority) VALUES ($userame, $task_name, $due_date, $priority)";
+        $username = mysqli_real_escape_string($conn, $inputData['username']);
+        $task = mysqli_real_escape_string($conn, $inputData['task']);
+        $dueDate = date(($inputData['due-date']));
+        $priority = (int)$inputData['priority'];
+        $isCompleted = false;
 
-        $conn->query($query);
+        $sql = "INSERT INTO tasks (username, task_name, due_date, priority, is_completed) VALUES ('$username', '$task', '$dueDate' , '$priority', '$isCompleted');";
+
+        mysqli_query($conn, $sql);
     }
 ?>
