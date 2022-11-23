@@ -1,5 +1,13 @@
 <?php
 
-    echo 'This will be the header template';
-
 ?>
+
+
+
+<header>
+    <h1>Your Todo List</h1>
+
+    <div>
+        
+    </div>
+</header>
