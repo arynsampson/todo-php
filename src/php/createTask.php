@@ -1,7 +1,6 @@
 <?php
-    require_once '../../config/connect.php';
 
-    session_start();
+    require '../../config/connect.php';
 
     function createTask($inputData) {
         global $conn;
