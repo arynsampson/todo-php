@@ -1,11 +1,11 @@
 <?php
-    require_once '../../config/connect.php';
 
-    session_start();
+    require './config/connect.php';
 
-    function deleteTask() {
-        $id = $_SESSION['task_id'];
-        $query = "DELETE FROM tasks WHERE tasks.id = $id";
-        $conn->query($query);
+    function deleteTask($taskId) {
+        $id = $taskId;
+        $sql = "DELETE FROM tasks WHERE id='$id';";
+        
+        mysqli_query($conn, $sql);
     }
 ?>
